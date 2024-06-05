@@ -8,6 +8,8 @@ namespace LoginDemoServer.DTO
         public string? PhoneNumber { get; set; }
         public DateTime? BirthDate { get; set; }
         public string Name { get; set; }
+        //הוספת תכונת הציון
+        public ICollection <Grade> Grade { get; set; }
 
         public Models.Users ToModelsUser()
         {
@@ -15,13 +17,15 @@ namespace LoginDemoServer.DTO
         }
 
         public UserDTO() { }
-        public UserDTO(Models.Users modelUser)
+        public UserDTO(Models.User modelUser)
         {
             this.PhoneNumber = modelUser.PhoneNumber;
             this.Name = modelUser.Name;
             this.Email = modelUser.Email;
             this.Password = modelUser.Password;
             this.BirthDate = modelUser.BirthDate;
+            //השמת הציון
+            this.Grade = modelUser.Grades;
         }
     }
 }
